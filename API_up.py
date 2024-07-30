@@ -48,6 +48,10 @@ def verificate_base_json(json_data: dict):
 async def verificate_by_json(*, file_bytes: bytes = File()):
     json_data = json.loads(file_bytes.decode('utf-8'))
     return verificate_base_json(json_data)
+
+@prefix_router.get("/health", description="Проверка работоспособности сервиса")
+async def health():
+    return Response(status_code=status.HTTP_200_OK)
     
 
 
