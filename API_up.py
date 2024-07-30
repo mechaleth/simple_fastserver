@@ -1,8 +1,10 @@
 import json
+import os
 from fastapi import APIRouter, FastAPI, File, Response
 from fastapi.responses import JSONResponse
 from starlette import status
 import uvicorn
+from dotenv import load_dotenv
 
 from verificator_manager import ManagerStates, verificator_manager
 
@@ -52,4 +54,9 @@ async def verificate_by_json(*, file_bytes: bytes = File()):
 app.include_router(prefix_router)
 
 if __name__=="__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    dotenv_path = '/.env'
+    if os.path.exists(dotenv_path):
+        load_dotenv(dotenv_path)
+    host = os.environ.get("SERVER_IP")
+    port = int(os.environ.get("SERVER_PORT"))
+    uvicorn.run(app, host, port)
