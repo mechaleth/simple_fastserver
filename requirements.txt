@@ -1,0 +1,7 @@
+typing_extensions
+pydantic
+loguru
+fastapi
+datamodel-code-generator
+python-dotenv
+python-multipart
