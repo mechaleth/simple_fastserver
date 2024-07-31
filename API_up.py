@@ -63,4 +63,4 @@ if __name__=="__main__":
         load_dotenv(dotenv_path)
     host = os.environ.get("SERVER_IP")
     port = int(os.environ.get("SERVER_PORT"))
-    uvicorn.run(app, host, port)
+    uvicorn.run(app, host=host, port=port)

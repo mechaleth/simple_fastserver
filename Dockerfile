@@ -5,8 +5,8 @@ WORKDIR $WORK_DIR
 ADD . .
 RUN rm .env Dockerfile
 RUN rm -r .git
-ENV SERVER_IP = "0.0.0.0"
-ENV SERVER_PORT = 8000
+ENV SERVER_IP "0.0.0.0"
+ENV SERVER_PORT 8000
 RUN pip install -r requirements.txt
 ENTRYPOINT [ "python" ]
-CMD [ "API_up.py",  ]
+CMD [ "-m", "API_up" ]
