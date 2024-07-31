@@ -3,7 +3,8 @@ LABEL version="1.0" description="Simple FastServer for hometask"
 ENV WORK_DIR=/app
 WORKDIR $WORK_DIR
 ADD . .
-RUN rm .env Dockerfile
+RUN rm -f .env
+RUN rm Dockerfile
 RUN rm -r .git
 ENV SERVER_IP "0.0.0.0"
 ENV SERVER_PORT 8000
